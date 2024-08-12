@@ -138,8 +138,6 @@ module.exports.dashboard_get = (req, res) => {
   res.render("dashboard", { user: req.session.user });
 };
 
-
-
 module.exports.myprofil_get = (req, res) => {
   if (!req.session.user) {
     return res.redirect("/login");

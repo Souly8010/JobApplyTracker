@@ -58,9 +58,7 @@ app.get('/register', (req, res) => res.render('register'));
 // Route pour afficher le tableau de bord avec les jobs
 app.get('/dashboard', requireAuth, async (req, res) => {
   try {
-      console.log("Avant de récupérer les jobs");
       const jobs = await Job.find().sort({ createdAt: 1 });
-      console.log("Jobs récupérés:", jobs);
       res.render('dashboard', { user: res.locals.user, jobs: jobs, pageClass: 'dashboard-page'});
   } catch (error) {
       console.error("Erreur lors du chargement des jobs:", error);
