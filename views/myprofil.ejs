@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body class="profile-page">
+    <header>
+        <nav>
+            <div id="logo">
+                <a href="/">JOBAPPLY <span>TRACKER</span></a>
+            </div>
+            <ul>
+                <% if (session.user) { %>
+                    <li><%= session.user.email %></li>
+                    <li><a href="/logout">Logout</a></li>
+                    <li><a href='/dashboard'>Dashboard</a></li>
+                    <li><a href='/creatjob'>Create Job</a></li>
+                <% } else { %>
+                    <li><a href="/login">Login</a></li>
+                    <li><a href="/register">Register</a></li>
+                <% } %>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="profile-container">
+        <div class="profile-info">
+            <img src="<%= session.user.profilePicture %>" alt="Profile Picture" class="profile-pic">
+            <h2 class="profile-name"><%= session.user.firstname %></h2>
+            <p class="github-link"><a href="<%= session.user.github %>" target="_blank">GitHub Profile</a></p>
+        </div>
+        
+        <div class="profile-actions">
+            <a href="/uploads/cv/<%= session.user.cv %>" class="btn" download="<%= session.user.firstname %>_CV">Download CV</a>
+            <a href="<%= session.user.profilePicture %>" class="btn" download="<%= session.user.firstname %>_ProfilePicture">Download Picture</a>
+            <a href="/changepassword" class="btn">Change Password</a>
+        </div>
+    </div>
+</body>
+</html>

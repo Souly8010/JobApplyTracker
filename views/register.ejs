@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Inscription</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+  </head>
+  <body class="register-page">
+    <header>
+      <nav>
+        <div id="logo">
+          <a href="/">JOBAPPLY <span>TRACKER</span></a>
+        </div>
+        <ul>
+          <li><a href="/login">Login</a></li>
+          <li><a href="/register">Register</a></li>
+          <li><a href="/dashboard">Dashboard</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <div class="register-container">
+      <h2 id="registerTitle">Register</h2>
+      <form id="registerForm" action="/register" method="POST" enctype="multipart/form-data">
+        <label for="firstname">NickName :</label>
+        <input type="text" id="firstname" name="firstname" required>
+
+        <label for="lastname">Name :</label>
+        <input type="text" id="lastname" name="lastname" required>
+
+        <label for="github">Profil GitHub :</label>
+        <input type="url" id="github" name="github" required>
+
+        <label for="email">Email :</label>
+        <input type="email" id="email" name="email" required>
+        <div class="email error"></div>
+
+        <label for="profilePicture">Picture :</label>
+        <input type="file" id="profilePicture" name="profilePicture" accept="image/*">
+
+        <label for="cv">CV :</label>
+        <input type="file" id="cv" name="cv" accept=".pdf,.doc,.docx">
+
+        <label for="password">Password :</label>
+        <input type="password" id="password" name="password" required>
+
+        <label for="confirm-password">Confirmed password :</label>
+        <input type="password" id="confirm-password" name="confirmPassword" required>
+
+        <button type="submit">Register</button>
+        <p class="login-link">Already have account ? <a href="/login">Login here</a></p>
+      </form>
+    </div>
+  </body>
+</html>

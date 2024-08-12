@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/styles.css">
+  </head>
+  <body>
+    <header>
+      <h1 id="logo"><a id="a" href="/">JOBAPPLY <span>TRACKER</span></h1></a>
+      <nav>
+        <ul>
+          <% if (session.user) { %>
+            <li><%= session.user.email %></li>
+            <li><img src="<%= session.user.profilePicture %>" alt="Photo de profil" width="50" height="50"></li>
+            <li><a href="/logout">Se déconnecter</a></li>
+            <a href='/'>My Profil</a>
+            <a href='/login'>Login</a>
+            <a href='/register'>Register</a>
+            <a href='/dashboard'>Dashboard</a>
+          <% } else { %>
+            <li><a href="/login">Connexion</a></li>
+            <li><a href="/register">Inscription</a></li>
+          <% } %>
+        </ul>
+      </nav>
+    </header>
+    <div class="container">
+      <h1 id="myprofilTitle">My profile</h1>
+      <div class="profile-info">
+        <img src="<%= session.user.profilePicture %>" alt="Photo de profil" id="myprofilPP">
+        <div class="info-container">
+          <p><span class="label">Nom complet :</span> John Doe</p>
+          <p><span class="label">Email :</span> john@doe.com</p>
+          <p><span class="label">Github :</span> <a id="git" href="https://www.github.com/DoeJohn">https://www.github.com/DoeJohn</a></p>
+          <button class="button">Download CV</button>
+          <button class="button">Upload new CV</button>
+          <button class="button">Change password</button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
