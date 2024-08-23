@@ -1,6 +1,6 @@
 # JobApplyTracker
 
-## WHat ?
+## It's what ?
 
 I built an application in Ejs, Js and css/scss that will be one of your private places to track your job submissions.
 
